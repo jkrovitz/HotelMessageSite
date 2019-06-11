@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Hotel Greeting Site</title>
+
+  <!-- Bootstrap CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.1.1/flatly/bootstrap.min.css">
+
+  <!-- JQuery CDN -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+  
+  <!-- Moment.js CDN links -->
+  <script src="https://momentjs.com/downloads/moment.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.25/moment-timezone-with-data.js"></script>
+
+  <!-- Links for the Select2 plugin, which allows custom values to be input in a 
+  select box -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+  
+  <!-- Embedding the style.css file I wrote -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Hotel Greeting Site</h1>
+
+    <form id="myform">
+
+      <!-- Creating three select drop-lists and populating each option
+      with value and text attributes from python list passed in -->
+      <h3>Choose the Message</h3>
+      <select class="form-control" id="greetingDropdown" name="greeting">
+        {% for x in greetingList %}
+        <option value="{{x.greeting}}">{{x.greeting}}</option>
+        console.log(x);
+        {% endfor %}
+      </select>
+
+      <h3>Choose the Hotel</h3>
+      <select class="form-control" id="companyDropdown" name="company">
+        {% for x in companyList %}
+        <option value="company={{x.company}}&timezone={{x.timezone}}">{{x.company}}</option>
+        {% endfor %}
+      </select>
+
+      <h3>Choose the Guest</h3>
+      <select class="form-control" id="guestDropdown" name="guest">
+        {% for x in guestList %}
+        <option value="name={{x.firstName + ' ' + x.lastName}}&roomNumber={{x.reservation.roomNumber}}&startTimestamp={{x.reservation.startTimestamp}}&endTimestamp={{x.reservation.endTimestamp}}">{{x.firstName + " " + x.lastName}}</option>
+        {% endfor %}
+      </select>  
+
+      <div class="centered-button">
+        <input type="submit" class="submit-button"><br/>
+      </div>
+    </form>
+
+    <div class="messageOutput" id="displayCheckinMessage"></div>
+    <div class="messageOutput" id="displayCheckoutMessage" style="display: none;"></div>
+    <div class="messageOutput" id="displayMoreTowelsMessage" style="display: none;"></div>
+    <div class="messageOutput" id="displayOtherMessage" style="display: none;"></div>
+  </div>
+
+
+  <!-- Embedding the JS file I wrote -->
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/outputMessages.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "greeting": "Check in" 
+  }, 
+    {
+    "id": 2,
+    "greeting": "Check out" 
+  },
+  {"id":3,
+  "greeting":"More Towels"}
+
+]
