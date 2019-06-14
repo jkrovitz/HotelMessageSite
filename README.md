@@ -2,7 +2,7 @@
 
 ## Instructions for running the program
 
-1. Install Python 3 if it is not installed already
+1. Install Python 3 if it is not installed already. 
 
 2. Open the terminal / command prompt. 
 
@@ -10,9 +10,9 @@
 
 	+ i.e. **cd /Users/jkrovitz/DocumentsJeremyMacBookPro/git/HotelGreetingSite**
 
-4. Install Flask. You can do a pip install. 
+4. Install Flask. You can do a pip install by typing **pip install flask**. 
 
-5. Then type **python3 greetings.py**. 
+5. Then type **python greetings.py**. 
 
 	+ If the program does not open in an internet browser window as expected, the destination address for the program is **[http://127.0.0.1:5000/](http://127.0.0.1:5000/)**
 
